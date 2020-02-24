@@ -10,6 +10,7 @@
   <meta name="author" content="Justin Cauchon">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
@@ -27,121 +28,6 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <style media="screen">
-    * {
-      font-family: 'Roboto Mono', monospace;
-      color: #fff;
-    }
-
-    html {
-      max-height: 100%;
-      position: block;
-    }
-
-    body {
-      background: #000;
-      height: 100%;
-      width: 100%;
-      padding: 1%;
-      font-size: 14px;
-      margin-bottom: 60px;
-    }
-
-    h1 {
-      font-size: 38px;
-    }
-
-    h3 {
-      font-size: 14px;
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    a:visited {
-      color: #fff;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0.0;
-      }
-    }
-
-    @-webkit-keyframes blink {
-      50% {
-        opacity: 0.0;
-      }
-    }
-
-    .blink {
-      animation: blink 1s step-start 0s 5;
-      -webkit-animation: blink 1s step-start 0s 5;
-      color: lime;
-      font-weight: 900;
-    }
-
-    .retired {
-      text-decoration: line-through;
-    }
-
-    a:hover {
-      background-color: #86ff05;
-      color: #000;
-    }
-
-    a:active {
-      color: #fff;
-    }
-
-    ul li {
-      list-style-type: none;
-      line-height: 14px;
-      color: #888;
-      font-size: 12px;
-    }
-
-    img.pig {
-      width: 50%;
-      position: relative;
-      display: inline-block;
-      max-width: 500px;
-    }
-
-    small {
-      font-size: 12px;
-    }
-
-    hr {
-      display: block;
-      margin-top: 0.5em;
-      margin-bottom: 1em;
-      margin-left: 0.5rem;
-      border-style: inset;
-      border-width: 1px;
-    }
-
-    .figure-caption {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 400;
-    }
-
-    .nav-link {
-      padding: .5rem 1rem;
-      padding-top: 0.5rem;
-      padding-right: 0.5rem;
-      padding-bottom: 0.5rem;
-      
-    }
-
-    #subnav {
-      font-size: 12px;
-      font-size: calc(100% + 2vw);
-    }
-  </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121235266-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -153,79 +39,82 @@
 </head>
 
 <body class="m-1">
-    <div class="container"></div>
-  <div class="row">
-    <div class='col-md-7 pl-5'>
-      <h1>Justin <b>Cauchon</b></h1>
-      <div class="row">
-        <div class='col--12'>
-          <ul class="nav" id="subnav">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://blog.cauchon.net">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/cauchon">Twitter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/cauchon/">LinkedIn</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/cauchon">Github</a>
-            </li>
-          </ul>
-          <hr>
+  <div class="container">
+    <div class="row">
+      <div class='col-md-6'>
+        <h1>Justin <b>Cauchon</b></h1>
+        <div class="row">
+          <div class='col-md-12'>
+            <ul class="nav" id="subnav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://blog.cauchon.net">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/cauchon/">Twitter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/cauchon/">LinkedIn</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/cauchon/">Github</a>
+              </li>
+            </ul>
+          </div>
         </div>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class='col-md-6 col-sm-12'>
+        <h3>Projects</h3>
+        <ul>
+          <li><a target="_blank" href="https://www.seinfeldmemes.com/">seinfeld memes</a><span class=blink> NEW!</span>
+          </li>
+          <li><a target="_blank" href="https://twitter.com/king_infosec/">@king_infosec twitter bot</a><span
+              class=blink>
+              NEW!</span></li>
+          <li><a target="_blank" href="https://www.cauchon.org/">cauchon family tree (coming soon)</a></li>
+          <li><a target="_blank" href="https://github.com/Cauchon/malware-from-email">malware received via email</a>
+          </li>
+          <li><a target="_blank" href="https://jlc.ninja/">jlc.ninja</a></li>
+          <li><a target="_blank" href="https://todo.wtf/">todo.wtf</a></li>
+          <li><a target="_blank" href="https://github.com/Cauchon">github</a></li>
+          <li><a target="_blank" href="https://projectexile7.com/">projectexile7</a></li>
+          <li><a target="_blank" href="https://cnet.com/special-reports/"><span class=retired>CNET special
+                reports</span></a> (retired)</li>
+          <li><a target="_blank" href="https://smartphonenation.com/"><span class=retired>smartphone nation</span></a> (retired)</li>
+        </ul>
+        <h3>Contact</h3>
+        <ul>
+          <li><a target="_blank" href="https://twitter.com/cauchon">twitter</a></li>
+          <li><a target="_blank" href="https://keybase.io/cauchon">keybase</a></li>
+          <li><a
+              href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#097;&#117;&#099;&#104;&#111;&#110;+&#099;&#111;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#101;&#109;&#097;&#105;&#108;</a>
+          </li>
+          <li><a target="_blank" href="https://www.linkedin.com/in/cauchon/">linkedin</a></li>
+        </ul>
+        <h3>Favorites</h3>
+        <ul>
+          <li><a target="_blank" href="https://www.eff.org/">EFF</a></li>
+          <li><a target="_blank" href="https://www.cnet.com/">CNET</a></li>
+        </ul>
+        <span class="small"><a class="text-muted" target="_blank"
+            href="https://github.com/Cauchon/cauchon.github.io/commits/master">changelog</a></span>
+
+
+      </div>
+      <div class='col-md-6 col-sm-12 text-md-center text-left pl-5'>
+        <figure class="figure">
+          <img src="img/Pixelated-Cauchon.png" class="figure-img img-fluid pig" alt="Pig Oink Oink">
+          <figcaption class="figure-caption">Cochon</figcaption>
+        </figure>
       </div>
     </div>
   </div>
-  <div class="row justify-content-md-center pl-5">
-    <div class='col-md-5'>
-      <h3>Projects</h3>
-      <ul>
-        <li><a target="_blank" href="https://www.seinfeldmemes.com/">seinfeld memes</a><span class=blink> NEW!</span>
-        </li>
-        <li><a target="_blank" href="https://twitter.com/king_infosec/">@king_infosec twitter bot</a><span class=blink>
-            NEW!</span></li>
-        <li><a target="_blank" href="https://www.cauchon.org/">cauchon family tree (coming soon)</a></li>
-        <li><a target="_blank" href="https://github.com/Cauchon/malware-from-email">malware received via email</a></li>
-        <li><a target="_blank" href="https://jlc.ninja/">jlc.ninja</a></li>
-        <li><a target="_blank" href="https://todo.wtf/">todo.wtf</a></li>
-        <li><a target="_blank" href="https://github.com/Cauchon">github</a></li>
-        <li><a target="_blank" href="https://projectexile7.com/">projectexile7</a></li>
-        <li><a target="_blank" href="https://cnet.com/special-reports/"><span class=retired>CNET special
-              reports</span></a> (retired)</li>
-        <li><a target="_blank" href="https://smartphonenation.com/"><span class=retired>smartphone nation
-              (retired)</span></a></li>
-      </ul>
-      <h3>Contact</h3>
-      <ul>
-        <li><a target="_blank" href="https://twitter.com/cauchon">twitter</a></li>
-        <li><a target="_blank" href="https://keybase.io/cauchon">keybase</a></li>
-        <li><a
-            href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#097;&#117;&#099;&#104;&#111;&#110;+&#099;&#111;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#101;&#109;&#097;&#105;&#108;</a>
-        </li>
-        <li><a target="_blank" href="https://www.linkedin.com/in/cauchon/">linkedin</a></li>
-      </ul>
-      <h3>Favorites</h3>
-      <ul>
-        <li><a target="_blank" href="https://www.eff.org/">EFF</a></li>
-        <li><a target="_blank" href="https://www.cnet.com/">CNET</a></li>
-      </ul>
-      <span class="small"><a class="text-muted" target="_blank" href="https://github.com/Cauchon/cauchon.github.io/commits/master">changelog</a></span>
-
-      
-    </div>
-    <div class='col-md-7 col-xs-12 text-md-center text-left pl-5'>
-      <figure class="figure">
-        <img src="img/Pixelated-Cauchon.png" class="figure-img img-fluid pig" alt="Pig Oink Oink">
-        <figcaption class="figure-caption">Cochon</figcaption>
-      </figure>
-    </div>
-  </div>
-</div>
 </body>
 
 </html>
