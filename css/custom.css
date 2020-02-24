@@ -86,10 +86,8 @@
       }
   
       hr {
-        display: block;
         margin-top: 0.5em;
         margin-bottom: 1em;
-        margin-left: 0.5rem;
         border-style: inset;
         border-width: 1px;
       }
@@ -101,7 +99,7 @@
       }
   
       .nav-link {
-        padding: .5rem 1rem;
+        padding: 0.5rem 0.5rem;
         padding-top: 0.5rem;
         padding-right: 0.5rem;
         padding-bottom: 0.5rem;
