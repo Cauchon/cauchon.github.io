@@ -26,15 +26,6 @@
         font-size: 14px;
       }
   
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-  
-      a:visited {
-        color: #fff;
-      }
-  
       @keyframes blink {
         50% {
           opacity: 0.0;
@@ -57,7 +48,15 @@
       .retired {
         text-decoration: line-through;
       }
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
   
+      a:visited {
+        color: #fff;
+      }
+      
       a:hover {
         background-color: #86ff05;
         color: #000;
@@ -75,7 +74,7 @@
       }
   
       img.pig {
-        width: 50%;
+        width: 70%;
         position: relative;
         display: inline-block;
         max-width: 500px;
@@ -99,13 +98,19 @@
       }
   
       .nav-link {
-        padding: 0.5rem 0.5rem;
+        padding: 0rem 0rem;
         padding-top: 0.5rem;
-        padding-right: 0.5rem;
+        margin-right: 0.5rem;
         padding-bottom: 0.5rem;
-        
+        text-decoration: underline;
       }
-  
+
+      .nav-link:hover {
+        background-color: #000;
+        color: lime;
+        text-decoration: none;
+      }
+
       #subnav {
         font-size: 12px;
         font-size: calc(100% + 2vw);
