@@ -1,0 +1,114 @@
+
+    * {
+        font-family: 'Roboto Mono', monospace;
+        color: #fff;
+      }
+  
+      html {
+        max-height: 100%;
+        position: block;
+      }
+  
+      body {
+        background: #000;
+        height: 100%;
+        width: 100%;
+        padding: 1%;
+        font-size: 14px;
+        margin-bottom: 60px;
+      }
+  
+      h1 {
+        font-size: 38px;
+      }
+  
+      h3 {
+        font-size: 14px;
+      }
+  
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+  
+      a:visited {
+        color: #fff;
+      }
+  
+      @keyframes blink {
+        50% {
+          opacity: 0.0;
+        }
+      }
+  
+      @-webkit-keyframes blink {
+        50% {
+          opacity: 0.0;
+        }
+      }
+  
+      .blink {
+        animation: blink 1s step-start 0s 5;
+        -webkit-animation: blink 1s step-start 0s 5;
+        color: lime;
+        font-weight: 900;
+      }
+  
+      .retired {
+        text-decoration: line-through;
+      }
+  
+      a:hover {
+        background-color: #86ff05;
+        color: #000;
+      }
+  
+      a:active {
+        color: #fff;
+      }
+  
+      ul li {
+        list-style-type: none;
+        line-height: 14px;
+        color: #888;
+        font-size: 12px;
+      }
+  
+      img.pig {
+        width: 50%;
+        position: relative;
+        display: inline-block;
+        max-width: 500px;
+      }
+  
+      small {
+        font-size: 12px;
+      }
+  
+      hr {
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        margin-left: 0.5rem;
+        border-style: inset;
+        border-width: 1px;
+      }
+  
+      .figure-caption {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+      }
+  
+      .nav-link {
+        padding: .5rem 1rem;
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        
+      }
+  
+      #subnav {
+        font-size: 12px;
+        font-size: calc(100% + 2vw);
+      }
