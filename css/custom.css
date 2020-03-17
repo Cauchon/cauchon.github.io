@@ -5,15 +5,12 @@
       }
   
       html {
-        max-height: 100%;
         position: block;
+        overflow-x: hidden
       }
   
       body {
         background: #000;
-        height: 100%;
-        width: 100%;
-        padding: 1%;
         font-size: 14px;
         margin-bottom: 60px;
       }
@@ -24,6 +21,7 @@
   
       h3 {
         font-size: 14px;
+        color: #FFC10E
       }
   
       @keyframes blink {
