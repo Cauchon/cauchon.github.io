@@ -3,7 +3,7 @@ layout: post
 title: "Replatforming and brief history of the site"
 category: posts
 ---
-Today I'm are launching the new cauchon.net. For this replatforming, we used [Jekyll](https://jekyllrb.com/) which will let us maintain [easily manageable repository for the code](https://github.com/Cauchon/cauchon.github.io). The template is forked from the talented [notwaldorf](https://github.com/notwaldorf/notwaldorf.github.com). The site is fully responsive and will be updated over time with new posts from me.
+Today I'm are launching the new cauchon.net. For this replatforming, I used [Jekyll](https://jekyllrb.com/) which will let us maintain [easily manageable repository for the code](https://github.com/Cauchon/cauchon.github.io). The template is forked from the talented [notwaldorf](https://github.com/notwaldorf/notwaldorf.github.com). The site is fully responsive and will be updated over time with new posts from me.
 
 Over the past few years, I've made numerous design changes to the site. This site first debuted on the [cauchon.co domain name in 2013 hosted on Tumblr](https://web.archive.org/web/20131226191743/http://www.cauchon.co/) with a bold logo, seen below:
 
