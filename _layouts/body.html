@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    {% if page.title %}{{ page.title }} &ndash;{% endif %} {{ site.name }}
+    {% if page.title %}{{ page.title }} &ndash;{% endif %} {{ site.title }}
   </title>
 
   <meta name="author" content="{{ site.name }}" />
@@ -45,8 +45,6 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Justin Cauchon's Site">
-
-  <!-- Default twitter cards -->
   <meta name="twitter:card" content="Justin Cauchon's Site">
   <meta name="twitter:site" content="@Cauchon">
   <meta property="og:type" content="website">
@@ -56,7 +54,7 @@
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{ site.google_analytics_tracking_id }}']);
-    _gaq.push(['_setDomainName', cauchon.net']);
+    _gaq.push(['_setDomainName', 'cauchon.net']);
     _gaq.push(['_trackPageview']);
     (function () {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
