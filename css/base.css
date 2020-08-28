@@ -55,6 +55,8 @@ p {
   margin: 0 0 1.5rem;
   line-height: 1.5;
 }
+
+
 .top-line {
   border-top: var(--spacing-xs) solid var(--accent-2);
   position:fixed;
