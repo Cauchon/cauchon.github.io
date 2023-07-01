@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Replatforming and brief history of the site"
+title: "Replatforming the site"
 category: posts
 ---
 Today I'm are launching the new cauchon.net. For this replatforming, I used [Jekyll](https://jekyllrb.com/) which will let us maintain [easily manageable repository for the code](https://github.com/Cauchon/cauchon.github.io). The template is forked from the talented [notwaldorf](https://github.com/notwaldorf/notwaldorf.github.com). The site is fully responsive and will be updated over time with new posts from me.
