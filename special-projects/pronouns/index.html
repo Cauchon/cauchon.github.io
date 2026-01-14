@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Pronoun Fun!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <div class="start-card">
+                <h1>Pronoun Fun!</h1>
+                <p>Ready to play with Josie?</p>
+                <button id="start-btn" class="main-start-btn">START GAME</button>
+            </div>
+        </div>
+
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas"></canvas>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <!-- Prompt Section -->
+            <div class="prompt-section">
+                <p class="prompt-text" id="prompt-text">
+                    Give the ball to <span class="pronoun-highlight" id="pronoun-highlight">HIM</span>
+                </p>
+            </div>
+
+            <!-- Character Buttons -->
+            <div class="characters-section">
+                <button class="character-btn" id="boy-btn" data-gender="boy" aria-label="Boy">
+                    <img src="boy.png" alt="Boy" class="character-img">
+                </button>
+                <button class="character-btn" id="girl-btn" data-gender="girl" aria-label="Girl">
+                    <img src="girl.png" alt="Girl" class="character-img">
+                </button>
+            </div>
+        </main>
+
+        <!-- Feedback Overlay -->
+        <div class="feedback-overlay" id="feedback-overlay">
+            <div class="feedback-content">
+                <div class="feedback-icon" id="feedback-icon">⭐</div>
+                <p class="feedback-text" id="feedback-text">Correct!</p>
+            </div>
+        </div>
+
+        <!-- Score Display -->
+        <div class="score-display" id="score-display">
+            <span class="star-icon">⭐</span>
+            <span id="score">0</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
