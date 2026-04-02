@@ -189,6 +189,13 @@ nav ul {
   border-radius: inherit;
 }
 
+.sidebar .avatar-link:hover .avatar,
+.sidebar .avatar-link:focus-visible .avatar {
+  -webkit-animation: avatarzomg 1.2s infinite;
+  -moz-animation: avatarzomg 1.2s infinite;
+  animation: avatarzomg 1.2s infinite;
+}
+
 .sidebar a {
   border-bottom: none;
 }
@@ -417,9 +424,32 @@ a:hover, button:hover {
   }
 }
 
+@-webkit-keyframes avatarzomg {
+  0%, 100% { -webkit-filter: invert(0) saturate(100%) hue-rotate(0deg); }
+  25%      { -webkit-filter: invert(10%) saturate(500%) hue-rotate(180deg); }
+  50%      { -webkit-filter: invert(10%) saturate(300%) hue-rotate(300deg); }
+  75%      { -webkit-filter: invert(10%) saturate(500%) hue-rotate(90deg); }
+}
+
+@-moz-keyframes avatarzomg {
+  0%, 100% { filter: invert(0) saturate(100%) hue-rotate(0deg); }
+  25%      { filter: invert(10%) saturate(500%) hue-rotate(180deg); }
+  50%      { filter: invert(10%) saturate(300%) hue-rotate(300deg); }
+  75%      { filter: invert(10%) saturate(500%) hue-rotate(90deg); }
+}
+
+@keyframes avatarzomg {
+  0%, 100% { filter: invert(0) saturate(100%) hue-rotate(0deg); }
+  25%      { filter: invert(10%) saturate(500%) hue-rotate(180deg); }
+  50%      { filter: invert(10%) saturate(300%) hue-rotate(300deg); }
+  75%      { filter: invert(10%) saturate(500%) hue-rotate(90deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sidebar .avatar-frame,
-  .sidebar .avatar-frame::before {
+  .sidebar .avatar-frame::before,
+  .sidebar .avatar-link:hover .avatar,
+  .sidebar .avatar-link:focus-visible .avatar {
     animation: none;
   }
 }
