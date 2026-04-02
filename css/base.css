@@ -154,14 +154,39 @@ nav ul {
   width: 150px;
 }
 
-.sidebar .avatar {
-  border-radius: 50%;
+.sidebar .avatar-link {
+  display: block;
+  width: 150px;
+  height: 150px;
 }
 
-.sidebar .avatar:hover {
-  -webkit-animation: avatarzomg 0.9s infinite;
-  -moz-animation: avatarzomg 0.9s infinite;
-  animation: avatarzomg 0.9s infinite;
+.sidebar .avatar-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+  border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  animation: avatar-morph 7.5s linear infinite;
+}
+
+.sidebar .avatar-frame::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--accent-2);
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--accent-2) 28%, transparent);
+}
+
+.sidebar .avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: inherit;
 }
 
 .sidebar a {
@@ -378,23 +403,25 @@ a:hover, button:hover {
   80%      { color: #FF4136; fill: #FF4136;}
 }
 
-@-webkit-keyframes avatarzomg {
-  0%, 100% { -webkit-filter: invert(0) saturate(100%) hue-rotate(0deg); }
-  25%      { -webkit-filter: invert(10%) saturate(500%) hue-rotate(180deg); }
-  50%      { -webkit-filter: invert(10%) saturate(300%) hue-rotate(300deg); }
-  75%      { -webkit-filter: invert(10%) saturate(500%) hue-rotate(90deg); }
+@keyframes avatar-morph {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
 }
-@-moz-keyframes avatarzomg {
-  0%, 100% { filter: invert(0) saturate(100%) hue-rotate(0deg); }
-  25%      { filter: invert(10%) saturate(500%) hue-rotate(180deg); }
-  50%      { filter: invert(10%) saturate(300%) hue-rotate(300deg); }
-  75%      { filter: invert(10%) saturate(500%) hue-rotate(90deg); }
-}
-@keyframes avatarzomg {
-  0%, 100% { filter: invert(0) saturate(100%) hue-rotate(0deg); }
-  25%      { filter: invert(10%) saturate(500%) hue-rotate(180deg);}
-  50%      { filter: invert(10%) saturate(300%) hue-rotate(300deg); }
-  75%      { filter: invert(10%) saturate(500%) hue-rotate(90deg);}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar .avatar-frame,
+  .sidebar .avatar-frame::before {
+    animation: none;
+  }
 }
 
 /**********************
