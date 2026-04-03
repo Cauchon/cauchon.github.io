@@ -128,22 +128,29 @@ nav ul {
  **********************/
 .footer {
   padding: var(--spacing-l) 0;
-  color: var(--accent);
+  color: #777;
   text-align: center;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   line-height: var(--spacing);
 }
 
 .footer > .changelog {
-  display: flex;
-  flex-direction: row;
+  text-align: center;
 }
 
-.footer > .changelog {
+.footer > .changelog a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: normal;
   text-decoration: none;
-  font-size: 24px;
-  flex: 1;
-  text-align: center;
+  border-bottom: 1px dotted #bbb;
+}
+
+.footer > .changelog a:hover,
+.footer > .changelog a:focus-visible {
+  color: var(--foreground);
+  border-bottom-color: #999;
+  animation: none;
 }
 /**********************
  * Sidebar
