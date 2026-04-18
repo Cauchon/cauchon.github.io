@@ -36,22 +36,22 @@ layout: home
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
       <span class="marquee__item"><span class="dot">◉</span>It's <b class="marquee-time">—</b> in Portland, OR</span>
-      <span class="marquee__item"><span class="dot">☁︎</span><b>54°F</b> and drizzling, obviously</span>
+      <span class="marquee__item"><span class="dot">{{ site.data.weather.icon | default: "☁︎" }}</span><b>{{ site.data.weather.temperature | default: 54 }}°F</b> and {{ site.data.weather.description | default: "drizzling, obviously" }}</span>
       <span class="marquee__item"><span class="dot">♪</span>Last played: <b>Slow Show</b> — The National</span>
       <span class="marquee__item"><span class="dot">✦</span>Reading: <b>A Pattern Language</b> by Christopher Alexander</span>
       <span class="marquee__item"><span class="dot">✎</span>Drafting: <b>why PMs should ship their own website</b></span>
       <span class="marquee__item"><span class="dot">☕︎</span>On my 3rd coffee from <b>Coava</b></span>
       <span class="marquee__item"><span class="dot">⌁</span>Inbox: <b>47 unread</b>, mostly fine</span>
-      <span class="marquee__item"><span class="dot">◎</span>Sunrise in Portland: <b>6:21 am</b></span>
+      <span class="marquee__item"><span class="dot">{% if site.data.weather.sun_label == "sunset" %}☼{% else %}◎{% endif %}</span>{{ site.data.weather.sun_label | default: "Sunrise" | capitalize }} in Portland: <b>{{ site.data.weather.sun_time | default: "6:21 am" }}</b></span>
 
       <span class="marquee__item"><span class="dot">◉</span>It's <b class="marquee-time">—</b> in Portland, OR</span>
-      <span class="marquee__item"><span class="dot">☁︎</span><b>54°F</b> and drizzling, obviously</span>
+      <span class="marquee__item"><span class="dot">{{ site.data.weather.icon | default: "☁︎" }}</span><b>{{ site.data.weather.temperature | default: 54 }}°F</b> and {{ site.data.weather.description | default: "drizzling, obviously" }}</span>
       <span class="marquee__item"><span class="dot">♪</span>Last played: <b>Slow Show</b> — The National</span>
       <span class="marquee__item"><span class="dot">✦</span>Reading: <b>A Pattern Language</b> by Christopher Alexander</span>
       <span class="marquee__item"><span class="dot">✎</span>Drafting: <b>why PMs should ship their own website</b></span>
       <span class="marquee__item"><span class="dot">☕︎</span>On my 3rd coffee from <b>Coava</b></span>
       <span class="marquee__item"><span class="dot">⌁</span>Inbox: <b>47 unread</b>, mostly fine</span>
-      <span class="marquee__item"><span class="dot">◎</span>Sunrise in Portland: <b>6:21 am</b></span>
+      <span class="marquee__item"><span class="dot">{% if site.data.weather.sun_label == "sunset" %}☼{% else %}◎{% endif %}</span>{{ site.data.weather.sun_label | default: "Sunrise" | capitalize }} in Portland: <b>{{ site.data.weather.sun_time | default: "6:21 am" }}</b></span>
     </div>
   </div>
 
