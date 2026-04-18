@@ -1,26 +1,128 @@
 ---
-layout: layout
-title: "Posts"
+layout: home
+title: "Writing"
 ---
-<style>
-.content {margin-top: 0}
-.sidebar {margin-bottom: 0}
-</style>
+<main class="page writing-page">
+  <header class="site-header writing-header">
+    <a href="/" class="site-logo serif">
+      Justin <span class="italic">Cauchon</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" class="squiggle">home
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <a href="/#work" class="squiggle">work
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <a href="/posts/" class="squiggle" aria-current="page">writing
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <a href="/#about" class="squiggle">about
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <a href="/#elsewhere" class="squiggle">elsewhere
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+    </nav>
+  </header>
 
-<section class="content">
-  <ul class="listing table">
-    {% for post in site.posts %}
-    {% unless post.draft %}
-      {% capture currentdate %}{{post.date | date: "%Y"}}{% endcapture %}
-      {% if currentdate != thedate %}
-        <h3>{{ currentdate }}</h3>
-        {% capture thedate %}{{currentdate}}{% endcapture %}
-      {% endif %}
-      <li>
-        <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endunless %}
-    {% endfor %}
-  </ul>
-  <br/><br/>
-</section>
+  {% assign published = site.posts | where_exp: "p", "p.draft != true" %}
+  {% assign post_count = published | size %}
+
+  <section class="writing-hero">
+    <div class="eyebrow">/writing · {{ post_count }} post{% if post_count != 1 %}s{% endif %} · est. 2013</div>
+    <h1 class="writing-title">Writing<span class="italic">.</span></h1>
+    <p class="writing-lede">
+      Occasional notes on product, media, and the small projects I run
+      on the side. Updated whenever I finish something.
+    </p>
+  </section>
+
+  {% assign featured = published | first %}
+  {% if featured %}
+    <section class="writing-featured">
+      <div class="eyebrow">Featured · most recent post</div>
+      <a class="writing-featured__card" href="{{ featured.url }}">
+        <div class="writing-featured__body">
+          <div class="writing-featured__meta">{{ featured.date | date: "%B %-d, %Y" }}</div>
+          <h2 class="writing-featured__title serif">{{ featured.title }}<span class="italic">.</span></h2>
+          <p class="writing-featured__excerpt">
+            {{ featured.excerpt | strip_html | truncate: 260 }}
+          </p>
+          <div class="writing-featured__cta">read the post →</div>
+        </div>
+        <div class="writing-featured__tile placeholder-img" aria-hidden="true">
+          cauchon.net · {{ featured.date | date: "%Y" }}
+        </div>
+      </a>
+    </section>
+  {% endif %}
+
+  <section class="writing-index">
+    <div class="writing-index__head">
+      <h2 class="serif">All posts</h2>
+      <a class="writing-index__rss" href="/atom.xml">subscribe · rss →</a>
+    </div>
+    <div class="writing-index__rows">
+      {% for post in published %}
+        <a class="writing-row" href="{{ post.url }}">
+          <span class="writing-row__date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <div class="writing-row__body">
+            <div class="writing-row__title serif">{{ post.title }}</div>
+            <div class="writing-row__excerpt">{{ post.excerpt | strip_html | truncate: 220 }}</div>
+          </div>
+          <span class="writing-row__arrow">→</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="writing-archive">
+    <p class="serif">
+      Older experiments (2013–2019) live on the
+      <a href="https://web.archive.org/web/2019*/cauchon.net" target="_blank" rel="noopener">Internet Archive</a>,
+      where they continue to age like a fine instance of WordPress.
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <span>© {{ site.time | date: "%Y" }} Justin Cauchon · all rights reserved, none enforced</span>
+    <span>built with Jekyll · hosted on GitHub Pages</span>
+  </footer>
+</main>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var btn = document.querySelector('.theme-toggle');
+
+  function label() {
+    var isDark = root.getAttribute('data-theme') === 'dark';
+    if (btn) btn.textContent = isDark ? '☼ light' : '☾ dark';
+  }
+
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') root.setAttribute('data-theme', 'dark');
+    else if (saved === 'light') root.removeAttribute('data-theme');
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      root.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+  label();
+
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        root.removeAttribute('data-theme');
+        try { localStorage.setItem('theme', 'light'); } catch (e) {}
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+      }
+      label();
+    });
+  }
+})();
+</script>
