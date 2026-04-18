@@ -1,0 +1,118 @@
+# CLAUDE.md
+
+## Purpose
+This repository is the source for [cauchon.net](https://cauchon.net), a Jekyll-powered personal site with:
+- a redesigned homepage (`/`) using the "Warm Editorial" design system
+- blog posts under `_posts/`
+- supporting pages (`/posts`, `/projects`) using the legacy sidebar layout
+- a standalone interactive mini-app at `special-projects/pronouns/`
+
+Work here is mostly direct edits to HTML, Markdown, Liquid templates, CSS, and static assets.
+
+## Tech Stack
+- Jekyll 4 (`jekyll`, `jekyll-watch`, `jekyll-sitemap` in `Gemfile`)
+- Liquid templates and front matter
+- Static HTML/CSS/JS for non-Jekyll pages/apps
+- Ruby Bundler lockfile expects `bundler 2.3.26`
+
+## Repository Map
+- `_config.yml` — site config (`title`, `url`, permalink format, analytics id)
+- `_layouts/`
+  - `home.html` — **standalone layout for the homepage** (no sidebar; loads Google Fonts + `css/home.css`)
+  - `body.html` — `<head>`, global metadata, analytics script (used by legacy pages)
+  - `layout.html` — legacy sidebar/nav wrapper (used by `posts.html`, `projects.html`, post pages)
+  - `post.html` — blog post layout
+  - `portfolio.html` — portfolio page layout
+- `_posts/` — dated posts, `YYYY-MM-DD-title.markdown` or `.md`
+- `_drafts/` — drafts (not currently populated)
+- `index.html` — homepage using `layout: home`; implements the Warm Editorial design
+- `posts.html`, `projects.html` — secondary pages using `layout: layout` (legacy)
+- `css/`
+  - `home.css` — **homepage design system** (Warm Editorial: Fraunces + Inter + JetBrains Mono, light/dark tokens, marquee, squiggle nav)
+  - `base.css`, `mobile.css`, `post.css` — legacy styles used by non-homepage pages
+- `images/`, `icons/` — static assets
+- `special-projects/pronouns/` — standalone game (`index.html`, `styles.css`, `app.js`, `audio/`)
+- `_site/` — generated output (do not hand-edit)
+
+## Homepage Design System (`css/home.css` + `_layouts/home.html`)
+
+The homepage uses a distinct "Warm Editorial" aesthetic:
+- **Fonts**: Fraunces (serif display), Inter (body), JetBrains Mono (labels/dates) via Google Fonts
+- **Palette tokens**: `--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--rule`, `--accent` (#3b5bdb), dark-mode overrides via `[data-theme="dark"]`
+- **Components**: squiggle nav underlines (SVG), Portland status marquee (live clock), dark-mode toggle button (persisted to `localStorage`), work list rows, side projects grid, writing section
+- **Writing section** is Liquid-driven — iterates `site.posts` for real blog post data
+- **Dark mode** is toggled by setting `data-theme="dark"` on `<html>`; JS in `index.html` also checks `prefers-color-scheme` on first load
+
+When editing the homepage:
+- Edit `index.html` for content/structure changes
+- Edit `css/home.css` for visual/style changes
+- Edit `_layouts/home.html` only for `<head>` metadata or font changes
+
+## Local Development
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+```
+
+Build only:
+```bash
+bundle exec jekyll build
+```
+
+> **Note**: `bundle exec` fails in this environment unless Bundler `2.3.26` is installed to match `Gemfile.lock`.
+
+## Content and Editing Conventions
+
+### Posts
+- Add new posts in `_posts/` with date-prefixed filename.
+- Front matter:
+
+```yaml
+---
+layout: post
+title: "Post title"
+category: posts
+---
+```
+
+- Markdown body; images use absolute paths from site root (`/images/...`).
+- Posts automatically appear in the homepage Writing section and `/posts` listing.
+
+### Homepage copy
+- Bio, "Currently", "Elsewhere", work roles, and side projects are hardcoded in `index.html`.
+- Status marquee items (weather, last played, etc.) are also hardcoded in `index.html` — update them manually as life changes.
+
+### Legacy pages (`posts.html`, `projects.html`, post pages)
+- Use `layout: layout` which chains through `body.html`; loads `base.css` + `post.css`.
+- These retain the old monospace/sidebar aesthetic for now.
+
+### Standalone app (`special-projects/pronouns`)
+- No build step; static assets loaded via relative paths.
+- Validate on touch and desktop after any JS/CSS changes.
+
+## Validation Checklist
+After any template or content change:
+- Run `bundle exec jekyll build`
+- Verify homepage renders with correct design
+- Verify writing section shows real posts
+- Verify post list page (`/posts`) renders and links resolve
+- Verify at least one post page renders correctly
+- Verify dark-mode toggle works and persists across reload
+
+## Known Gotchas
+- `special-projects/pronouns/app.js` calls `initTTS()` on init but `initTTS` is not defined — breaks startup with a `ReferenceError`.
+- `_site/` is generated output and can become stale; regenerate rather than patching by hand.
+- The homepage layout (`home.html`) is standalone and does **not** include `base.css`. Adding CSS from `base.css` to the homepage will cause visual conflicts.
+
+## Safe Change Boundaries
+- Safe routine edits:
+  - new posts and copy updates
+  - homepage copy in `index.html`
+  - `css/home.css` style refinements
+  - layout tweaks in `_layouts/home.html`
+  - metadata updates in `_config.yml`
+- Higher-risk edits (require extra verification):
+  - permalink changes in `_config.yml`
+  - global `<head>` changes in `_layouts/body.html` (affects legacy pages only)
+  - JS behavior in `special-projects/pronouns/app.js`
+  - Any change that removes or renames `[data-theme]` handling (breaks dark mode)
