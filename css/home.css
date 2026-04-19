@@ -353,26 +353,25 @@ a {
   justify-content: space-between;
 }
 
-/* Theme toggle */
+/* Theme toggle — inline in the site footer */
 .theme-toggle {
-  position: fixed;
-  top: 24px;
-  right: 24px;
   background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-family: inherit;
-  font-size: 12px;
-  color: var(--ink-mute);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  z-index: 100;
+  transition: color 160ms ease;
 }
-.theme-toggle:hover {
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
   color: var(--ink);
-  border-color: var(--ink);
+  outline: none;
+}
+.theme-toggle__icon {
+  font-size: 1.05em;
+  line-height: 1;
 }
 
 /* ---------------------------------- */
@@ -780,7 +779,6 @@ a {
   .writing a.post-row { grid-template-columns: 96px 1fr; gap: 14px; }
   .elsewhere { grid-template-columns: 1fr; gap: 20px; }
   .site-footer { flex-direction: column; gap: 8px; font-size: 10px; }
-  .theme-toggle { top: 16px; right: 16px; }
 }
 
 /* Writing responsive */
