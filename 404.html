@@ -7,7 +7,7 @@ permalink: /404.html
   {% include nav.html current="" %}
 
   <section class="lost-hero">
-    <div class="eyebrow">error 404 · resource not located · {{ site.time | date: "%b %-d, %Y" }}</div>
+    <div class="eyebrow">error 404 · resource not located</div>
     <h1 class="lost-title">
       <span class="lost-title__digits" aria-hidden="true">
         <span class="lost-title__digit">4</span><span class="lost-title__digit lost-title__digit--mid italic">0</span><span class="lost-title__digit">4</span>
@@ -49,14 +49,14 @@ permalink: /404.html
       <a class="lost-detour" href="/">
         <span class="lost-detour__label">01 · home</span>
         <span class="lost-detour__title serif">The front page</span>
-        <span class="lost-detour__note">Bio, currently, side projects, today's Portland weather.</span>
+        <span class="lost-detour__note">Everything in one place.</span>
       </a>
       <a class="lost-detour" href="/posts/">
         <span class="lost-detour__label">02 · posts</span>
         <span class="lost-detour__title serif">Something to read</span>
         <span class="lost-detour__note">
           {% assign published = site.posts | where_exp: "p", "p.draft != true" %}
-          {{ published | size }} post{% if published.size != 1 %}s{% endif %}, give or take a draft.
+          A record of things worth writing down.
         </span>
       </a>
       <a class="lost-detour" href="/contact/">
@@ -155,7 +155,7 @@ permalink: /404.html
         'approximately never',
         'in a previous deploy',
         'on a different branch',
-        'last Tuesday, give or take',
+        'when IE11 was still a concern',
         'before the great refactor',
         'in the WordPress era'
       ];
