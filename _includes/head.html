@@ -1,14 +1,8 @@
 <meta charset="utf-8">
-<title>{% if page.title %}{{ page.title }} &ndash;{% endif %} {{ site.title }}</title>
-
-<meta name="author" content="{{ site.name }}" />
-<meta name="description" content="{{ site.description }}" />
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-<link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@Cauchon">
-<a rel="me" href="https://mastodon.social/@Cauchon"></a>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="cauchon.net">
-<meta property="og:image" content="{{ '/icons/icon-192x192.png' | absolute_url }}" />
+{% seo %}
+
+<link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+<link rel="me" href="https://mastodon.social/@Cauchon">
+
