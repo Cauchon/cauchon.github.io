@@ -31,7 +31,7 @@ Work here is mostly direct edits to HTML, Markdown, Liquid templates, CSS, and s
 - `projects.html` — legacy projects page using `layout: layout`
 - `css/`
   - `home.css` — **homepage design system** (Warm Editorial: Fraunces + Inter + JetBrains Mono, light/dark tokens, marquee, squiggle nav)
-  - `base.css`, `mobile.css`, `post.css`, `pygments.css`, `scroller.css` — legacy styles used by non-homepage pages
+  - `base.css`, `post.css` — legacy styles used by non-homepage pages (404, projects)
 - `images/`, `icons/` — static assets
 - `scripts/fetch-weather.rb` — fetches Open-Meteo data and writes `_data/weather.yml`
 - `special-projects/pronouns/` — standalone game (`index.html`, `styles.css`, `app.js`, `audio/`)
