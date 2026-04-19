@@ -3,28 +3,7 @@ layout: home
 title: "Posts"
 ---
 <main class="page writing-page">
-  <header class="site-header writing-header">
-    <a href="/" class="site-logo serif">
-      Justin <span class="italic">Cauchon</span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/" class="squiggle">home
-        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      </a>
-      <a href="/#work" class="squiggle">work
-        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      </a>
-      <a href="/posts/" class="squiggle" aria-current="page">posts
-        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      </a>
-      <a href="/#about" class="squiggle">about
-        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      </a>
-      <a href="/#elsewhere" class="squiggle">elsewhere
-        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      </a>
-    </nav>
-  </header>
+  {% include nav.html current="posts" %}
 
   {% assign published = site.posts | where_exp: "p", "p.draft != true" %}
   {% assign post_count = published | size %}
