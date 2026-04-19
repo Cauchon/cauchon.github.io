@@ -109,6 +109,7 @@ After any template or content change:
 - `_site/` is generated output and can become stale; regenerate rather than patching by hand.
 - The homepage layout (`home.html`) is standalone and does **not** include `base.css`. Adding CSS from `base.css` to the homepage will cause visual conflicts.
 - The shared site nav lives in `_includes/nav.html` and is used by `posts.html` and `_layouts/post.html` via `{% include nav.html current="<section>" %}`. Nav items: home (`/`), posts (`/posts/`), contact (`/contact/`). The homepage (`index.html`) has its own inline nav because the home item uses an in-page anchor (`#home`); posts and contact use routed links (`/posts/`, `/contact/`).
+- The shared site footer lives in `_includes/footer.html` and is used by `index.html`, `posts.html`, and `_layouts/post.html` via `{% include footer.html %}`. Edit footer copy there — do not inline per page.
 
 ## Safe Change Boundaries
 - Safe routine edits:
