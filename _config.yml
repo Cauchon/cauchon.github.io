@@ -10,3 +10,8 @@ google_analytics_tracking_id: UA-121235266-2
 
 plugins:
   - jekyll-sitemap
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - scripts/
