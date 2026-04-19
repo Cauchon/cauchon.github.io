@@ -43,9 +43,9 @@ Work here is mostly direct edits to HTML, Markdown, Liquid templates, CSS, and s
 The homepage uses a distinct "Warm Editorial" aesthetic:
 - **Fonts**: Fraunces (serif display), Inter (body), JetBrains Mono (labels/dates) via Google Fonts
 - **Palette tokens**: `--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--rule`, `--accent` (#3b5bdb), dark-mode overrides via `[data-theme="dark"]`
-- **Components**: squiggle nav underlines (SVG), Portland status marquee (live clock), dark-mode toggle button (persisted to `localStorage`), work list rows, side projects grid, posts section
+- **Components**: squiggle nav underlines (SVG), Portland status marquee (live clock), dark-mode toggle button in the footer (persisted to `localStorage`), work list rows, side projects grid, posts section
 - **Posts section** is Liquid-driven — iterates `site.posts` for real blog post data
-- **Dark mode** is toggled by setting `data-theme="dark"` on `<html>`; JS in `index.html` also checks `prefers-color-scheme` on first load
+- **Dark mode** is toggled by setting `data-theme="dark"` on `<html>`; JS lives in `_layouts/home.html` and checks `prefers-color-scheme` on first load
 
 When editing the homepage:
 - Edit `index.html` for content/structure changes
