@@ -110,6 +110,7 @@ After any template or content change:
 - The homepage layout (`home.html`) is standalone and does **not** include `base.css`. Adding CSS from `base.css` to the homepage will cause visual conflicts.
 - The shared site nav lives in `_includes/nav.html` and is used by `posts.html` and `_layouts/post.html` via `{% include nav.html current="<section>" %}`. Nav items: home (`/`), posts (`/posts/`), contact (`/contact/`). The homepage (`index.html`) has its own inline nav because the home item uses an in-page anchor (`#home`); posts and contact use routed links (`/posts/`, `/contact/`).
 - The shared site footer lives in `_includes/footer.html` and is used by `index.html`, `posts.html`, and `_layouts/post.html` via `{% include footer.html %}`. Edit footer copy there — do not inline per page.
+- The shared `<head>` content is split into three includes used by both `_layouts/body.html` and `_layouts/home.html`: `_includes/head.html` (charset, title, author/description/viewport, RSS alternate, Twitter/OG meta), `_includes/favicons.html` (all favicon/apple-touch-icon/manifest/mobile-web-app meta), and `_includes/analytics.html` (Google Analytics snippet). Layout-specific `<head>` content (stylesheets, Google Fonts, `theme-color`, `msapplication-TileColor`) remains inline in each layout.
 
 ## Safe Change Boundaries
 - Safe routine edits:

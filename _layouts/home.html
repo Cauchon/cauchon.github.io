@@ -2,65 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
 <head>
-  <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} &ndash;{% endif %} {{ site.title }}</title>
-
-  <meta name="author" content="{{ site.name }}" />
-  <meta name="description" content="{{ site.description }}" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+  {% include head.html %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/home.css" type="text/css" media="screen, projection" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-  <link rel="icon" type="image/png" href="/icons/icon-192x192.png">
-  <link rel="manifest" href="/manifest.json">
+  {% include favicons.html %}
 
-  <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="manifest" href="/icons/manifest.json">
   <meta name="msapplication-TileColor" content="#3b5bdb">
-  <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#f4f4f2">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Justin Cauchon's Site">
-
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Justin Cauchon's Site">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@Cauchon">
-  <a rel="me" href="https://mastodon.social/@Cauchon"></a>
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="cauchon.net">
-  <meta property="og:image" content="/icons/icon-192x192.png" />
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ site.google_analytics_tracking_id }}']);
-    _gaq.push(['_setDomainName', 'cauchon.net']);
-    _gaq.push(['_trackPageview']);
-    (function () {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  {% include analytics.html %}
 </head>
 <body>
   <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☾ dark</button>
