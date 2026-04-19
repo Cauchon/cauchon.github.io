@@ -10,7 +10,7 @@ layout: home
       <a href="#work" class="squiggle">work
         <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       </a>
-      <a href="#writing" class="squiggle">writing
+      <a href="#writing" class="squiggle">posts
         <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       </a>
       <a href="#about" class="squiggle">about
@@ -106,9 +106,16 @@ layout: home
       </div>
       <div class="side-projects__item">
         <span class="diamond">◆</span>
+        <a href="https://bsky.app/profile/idontrespectwood.bsky.social">
+          <div class="title">Current Day Larry David</div>
+          <div class="note">It's like Curb Your Enthusiasm never ended.</div>
+        </a>
+      </div>
+      <div class="side-projects__item">
+        <span class="diamond">◆</span>
         <a href="https://smartphonenation.com/">
           <div class="title">Smartphone Nation</div>
-          <div class="note">Smartphone news, reviews &amp; rumors</div>
+          <div class="note">Smartphone news and reviews of the early smartphone era</div>
         </a>
       </div>
       <div class="side-projects__item">
@@ -125,18 +132,11 @@ layout: home
           <div class="note">The Cauchon family tree</div>
         </a>
       </div>
-      <div class="side-projects__item">
-        <span class="diamond">◆</span>
-        <a href="https://github.com/Cauchon/malware-from-email/">
-          <div class="title">Malware Received via Email</div>
-          <div class="note">A collection, for science</div>
-        </a>
-      </div>
     </div>
   </section>
 
   <section id="writing" class="section writing">
-    <h2>Writing</h2>
+    <h2>Posts</h2>
     {% for post in site.posts %}{% unless post.draft %}
       <a class="post-row" href="{{ post.url }}">
         <span class="date">{{ post.date | date: "%b %Y" }}</span>

@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Writing"
+title: "Posts"
 ---
 <main class="page writing-page">
   <header class="site-header writing-header">
@@ -14,7 +14,7 @@ title: "Writing"
       <a href="/#work" class="squiggle">work
         <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       </a>
-      <a href="/posts/" class="squiggle" aria-current="page">writing
+      <a href="/posts/" class="squiggle" aria-current="page">posts
         <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       </a>
       <a href="/#about" class="squiggle">about
@@ -30,11 +30,10 @@ title: "Writing"
   {% assign post_count = published | size %}
 
   <section class="writing-hero">
-    <div class="eyebrow">/writing · {{ post_count }} post{% if post_count != 1 %}s{% endif %} · est. 2013</div>
-    <h1 class="writing-title">Writing<span class="italic">.</span></h1>
+    <div class="eyebrow">/posts · {{ post_count }} post{% if post_count != 1 %}s{% endif %} · est. 2013</div>
+    <h1 class="writing-title">Posts<span class="italic">.</span></h1>
     <p class="writing-lede">
-      Occasional notes on product, media, and the small projects I run
-      on the side. Updated whenever I finish something.
+      Life updates, career moves, and blabbering about technology. Updated whenever something worth writing about happens.
     </p>
   </section>
 
