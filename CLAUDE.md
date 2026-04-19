@@ -108,7 +108,7 @@ After any template or content change:
 - `special-projects/pronouns/app.js` calls `initTTS()` on init but `initTTS` is not defined — breaks startup with a `ReferenceError`.
 - `_site/` is generated output and can become stale; regenerate rather than patching by hand.
 - The homepage layout (`home.html`) is standalone and does **not** include `base.css`. Adding CSS from `base.css` to the homepage will cause visual conflicts.
-- The shared site nav lives in `_includes/nav.html` and is used by `posts.html` and `_layouts/post.html` via `{% include nav.html current="<section>" %}`. The homepage (`index.html`) has its own inline nav because it uses in-page anchors (`#home`, `#work`, …) instead of routed `/` + `/#section` links.
+- The shared site nav lives in `_includes/nav.html` and is used by `posts.html` and `_layouts/post.html` via `{% include nav.html current="<section>" %}`. Nav items: home (`/`), posts (`/posts/`), contact (`/contact/`). The homepage (`index.html`) has its own inline nav because it uses in-page anchors (`#home`, `#writing`, `/contact/`) instead of fully routed links.
 
 ## Safe Change Boundaries
 - Safe routine edits:
