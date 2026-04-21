@@ -9,37 +9,17 @@ title: "Posts"
   {% assign post_count = published | size %}
 
   <section class="writing-hero">
-    <div class="eyebrow">/posts · {{ post_count }} post{% if post_count != 1 %}s{% endif %} · est. 2013</div>
+    <div class="eyebrow">/posts · {{ post_count }} post{% if post_count != 1 %}s{% endif %}</div>
     <h1 class="writing-title">Posts<span class="italic">.</span></h1>
     <p class="writing-lede">
       Life updates, career moves, and blabbering about technology. Updated whenever something worth writing about happens.
     </p>
   </section>
 
-  {% assign featured = published | first %}
-  {% if featured %}
-    <section class="writing-featured">
-      <div class="eyebrow">Featured · most recent post</div>
-      <a class="writing-featured__card" href="{{ featured.url }}">
-        <div class="writing-featured__body">
-          <div class="writing-featured__meta">{{ featured.date | date: "%B %-d, %Y" }}</div>
-          <h2 class="writing-featured__title serif">{{ featured.title }}<span class="italic">.</span></h2>
-          <p class="writing-featured__excerpt">
-            {{ featured.excerpt | strip_html | truncate: 260 }}
-          </p>
-          <div class="writing-featured__cta">read the post →</div>
-        </div>
-        <div class="writing-featured__tile placeholder-img" aria-hidden="true">
-          cauchon.net · {{ featured.date | date: "%Y" }}
-        </div>
-      </a>
-    </section>
-  {% endif %}
-
   <section class="writing-index">
     <div class="writing-index__head">
       <h2 class="serif">All posts</h2>
-      <a class="writing-index__rss" href="/atom.xml">subscribe · rss →</a>
+      <a class="writing-index__rss" href="/atom.xml">rss →</a>
     </div>
     <div class="writing-index__rows">
       {% for post in published %}
@@ -55,14 +35,6 @@ title: "Posts"
     </div>
   </section>
 
-  <section class="writing-archive">
-    <p class="serif">
-      Older experiments (2013–2019) live on the
-      <a href="https://web.archive.org/web/2019*/cauchon.net" target="_blank" rel="noopener">Internet Archive</a>,
-      where they continue to age like a fine instance of WordPress.
-    </p>
-  </section>
-
-  {% include footer.html %}
+{% include footer.html %}
 </main>
 
