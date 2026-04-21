@@ -24,21 +24,6 @@ layout: home
     <b>Director of Product at Yahoo,</b> building products used by millions. Previously at <a href="https://www.wired.com/">Condé Nast</a>, <a href="https://www.cnet.com/">CNET</a>, and <a href="https://en.wikipedia.org/wiki/Slingbox">Slingbox</a>. On the side, I make things for the internet.
   </p>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span class="marquee__item"><span class="dot">◉</span>It's <b class="marquee-time">—</b> in Portland, OR</span>
-      <span class="marquee__item"><span class="dot">⏱</span><span class="marquee-tz"></span></span>
-      <span class="marquee__item"><span class="dot">{{ site.data.weather.icon | default: "☁︎" }}</span><b>{{ site.data.weather.temperature | default: 54 }}°F</b> and {{ site.data.weather.description | default: "drizzling, obviously" }}</span>
-      <span class="marquee__item"><span class="dot">▶</span>Rewatching: <b>Seinfeld</b></span>
-      <span class="marquee__item"><span class="dot">{% if site.data.weather.sun_label == "sunset" %}☼{% else %}◎{% endif %}</span>{{ site.data.weather.sun_label | default: "Sunrise" | capitalize }} in Portland: <b>{{ site.data.weather.sun_time | default: "6:21 am" }}</b></span>
-
-      <span class="marquee__item"><span class="dot">◉</span>It's <b class="marquee-time">—</b> in Portland, OR</span>
-      <span class="marquee__item"><span class="dot">⏱</span><span class="marquee-tz"></span></span>
-      <span class="marquee__item"><span class="dot">{{ site.data.weather.icon | default: "☁︎" }}</span><b>{{ site.data.weather.temperature | default: 54 }}°F</b> and {{ site.data.weather.description | default: "drizzling, obviously" }}</span>
-      <span class="marquee__item"><span class="dot">▶</span>Rewatching: <b>Seinfeld</b></span>
-      <span class="marquee__item"><span class="dot">{% if site.data.weather.sun_label == "sunset" %}☼{% else %}◎{% endif %}</span>{{ site.data.weather.sun_label | default: "Sunrise" | capitalize }} in Portland: <b>{{ site.data.weather.sun_time | default: "6:21 am" }}</b></span>
-    </div>
-  </div>
 
   <section class="two-col">
     <div>
@@ -132,40 +117,3 @@ layout: home
 
   {% include footer.html %}
 </main>
-
-<script>
-(function() {
-  function updateClock() {
-    var nodes = document.querySelectorAll('.marquee-time');
-    if (!nodes.length) return;
-    try {
-      var formatter = new Intl.DateTimeFormat('en-US', {
-        hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'
-      });
-      var str = formatter.format(new Date()).toLowerCase();
-      nodes.forEach(function(n) { n.textContent = str; });
-    } catch (e) {}
-  }
-  updateClock();
-  setInterval(updateClock, 30000);
-})();
-
-(function() {
-  try {
-    var now = new Date();
-    var utcBase = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
-    var portlandOffset = (new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })) - utcBase) / 3600000;
-    var visitorOffset = -now.getTimezoneOffset() / 60;
-    var diff = Math.round(visitorOffset - portlandOffset);
-    var text;
-    if (diff === 0) {
-      text = "You're in my timezone";
-    } else if (diff > 0) {
-      text = "You're " + diff + " hour" + (diff === 1 ? "" : "s") + " ahead of me";
-    } else {
-      text = "You're " + Math.abs(diff) + " hour" + (Math.abs(diff) === 1 ? "" : "s") + " behind me";
-    }
-    document.querySelectorAll('.marquee-tz').forEach(function(n) { n.textContent = text; });
-  } catch(e) {}
-})();
-</script>
