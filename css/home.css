@@ -258,17 +258,6 @@ a {
   text-decoration: none;
   transition: color 120ms ease;
 }
-.side-projects__meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-top: 10px;
-}
 .side-projects__title {
   font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   font-size: 20px;
