@@ -641,7 +641,9 @@ a {
   .writing-lede { font-size: 20px; }
 }
 @media (max-width: 700px) {
-  .writing-header { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 48px; }
+  .writing-header { flex-direction: row; align-items: center; gap: 16px; margin-bottom: 48px; }
+  .writing-header .site-nav { margin-left: auto; flex-shrink: 0; }
+  .writing-header .site-logo { font-size: 20px; }
   .writing-title { font-size: 56px; }
   .writing-lede { font-size: 17px; }
   .writing-row { grid-template-columns: 1fr 24px; gap: 12px; padding: 18px 0; }
