@@ -246,44 +246,52 @@ a {
 }
 
 /* Side projects */
-.side-projects h2 {
-  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  font-size: 32px;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--ink-soft);
-}
 .side-projects__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 40px;
+  column-gap: 56px;
+  row-gap: 40px;
 }
 .side-projects__item {
-  display: flex;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px dashed var(--rule);
-}
-.side-projects__item .diamond {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--accent);
-  margin-top: 3px;
-}
-.side-projects__item a {
-  text-decoration: none;
+  display: block;
   color: inherit;
+  text-decoration: none;
+  transition: color 120ms ease;
 }
-.side-projects__item a:hover .title {
+.side-projects__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+}
+.side-projects__meta .arrow {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: var(--ink-mute);
+}
+.side-projects__title {
+  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.side-projects__note {
+  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.4;
   color: var(--accent);
 }
-.side-projects__item .title {
-  font-weight: 500;
-}
-.side-projects__item .note {
-  font-size: 14px;
-  color: var(--ink-mute);
+.side-projects__item:hover .side-projects__title {
+  color: var(--accent);
 }
 
 /* Writing */
@@ -773,8 +781,8 @@ a {
   .section-head h2 { font-size: 28px; }
   .work-row { grid-template-columns: 84px 1fr; gap: 16px; }
   .work-row .note { grid-column: 2; }
-  .side-projects__grid { grid-template-columns: 1fr; }
-  .side-projects h2 { font-size: 24px; }
+  .side-projects__grid { grid-template-columns: 1fr; row-gap: 28px; }
+  .side-projects__title { font-size: 22px; }
   .writing h2 { font-size: 24px; }
   .writing a.post-row { grid-template-columns: 96px 1fr; gap: 14px; }
   .elsewhere { grid-template-columns: 1fr; gap: 20px; }

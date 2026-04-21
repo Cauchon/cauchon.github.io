@@ -74,7 +74,7 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Two-column info | `.two-col`, `.col-label`, `.col-body` | Currently / Elsewhere |
 | Section head | `.section`, `.section-head` | labeled sections with heavy top rule |
 | Work row | `.work-row` (year / title / note) | work history |
-| Side projects grid | `.side-projects__grid`, `.side-projects__item` | grid of small items with `◆` |
+| Side projects grid | `.side-projects__grid`, `.side-projects__item` (+ `__meta`, `__title`, `__note`) | Rule-separated editorial cards — mono domain + `↗` eyebrow, Fraunces title, italic accent tagline. 2-col at desktop, 1-col ≤700px. |
 | Post row (home) | `.writing a.post-row` | homepage posts preview |
 | Writing hero | `.writing-hero`, `.writing-title`, `.writing-lede` | `/posts` top |
 | Featured card | `.writing-featured__card` | large link card with tile |
