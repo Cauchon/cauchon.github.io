@@ -1,12 +1,35 @@
 ---
-layout: layout
+layout: home
 ---
-<section class="content">
-  <section class="byline">
-    {{ page.date | date: "%B %e, %Y" }}
-  </section>
-  <h1>
-    <a href="{{ page.url }}">{{ page.title }}</a>
-  </h1>
-  {{ content }}
-</section>
+<main class="page post-page">
+  {% include nav.html current="posts" %}
+
+  {% assign words = content | number_of_words %}
+  {% assign read_time = words | divided_by: 200 | plus: 1 %}
+  {% assign kicker = page.kicker | default: "Posts" %}
+
+  <article class="post">
+    <a href="/posts/" class="post-back">← all posts</a>
+
+    <header class="post-head">
+      <div class="post-meta">
+        {{ kicker }} · {{ page.date | date: "%B %-d, %Y" }} · {{ read_time }} min read
+      </div>
+      <h1 class="post-title serif">{{ page.title }}</h1>
+    </header>
+
+    <div class="post-body serif">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      <a href="/posts/" class="squiggle post-footer__back">← all posts
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <span class="post-footer__path mono">{{ page.url }}</span>
+    </footer>
+  </article>
+
+  {% include footer.html %}
+</main>
+

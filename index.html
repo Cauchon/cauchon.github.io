@@ -1,41 +1,119 @@
 ---
-layout: layout
+layout: home
 ---
-<style>
-  .content {
-    margin-top: 0
-  }
+<main class="page">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#home" class="squiggle" aria-current="page">home
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+      <a href="/posts/" class="squiggle">posts
+        <svg viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true"><path d="M1 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 79 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </a>
+    </nav>
+  </header>
 
-  .sidebar {
-    margin-bottom: 0
-  }
-</style>
-
-  <section class="content">
-    <h1>Hiya! I'm Justin Cauchon.</h1>
-
-    <p>I'm a Director of Product at <a href="https://www.yahoo.com/">Yahoo</a>. Prior to that, I worked on the product team at <a href="https://www.wired.com/">Condé Nast</a>, <a href="https://www.cnet.com/">CNET</a>, <a href="https://en.wikipedia.org/wiki/Slingbox">Slingbox</a> and founded <a href="https://smartphonenation.com/">Smartphone Nation</a>.
-      </p>
-      <p>
-        <p>You can <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#097;&#117;&#099;&#104;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">reach me by email</a>.</p>
-      </p>
+  <section id="home" class="hero">
+    <h1>
+      <span>Justin</span><br/>
+      <span class="italic">Cauchon</span><span class="cursor serif">_</span>
+    </h1>
   </section>
 
-  <section class="content">
-    <h2>My posts</h2>
-    <ul class="listing table">
-      {% for post in site.posts %}
-      {% unless post.draft %}
-        {% capture currentdate %}{{post.date | date: "%Y"}}{% endcapture %}
-        {% if currentdate != thedate %}
-          <h3>{{ currentdate }}</h3>
-          {% capture thedate %}{{currentdate}}{% endcapture %}
-        {% endif %}
-        <li>
-          <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-      {% endunless %}
-      {% endfor %}
-    </ul>
-    <br/><br/>
+  <p class="tagline" id="about">
+    <b>Director of Product at Yahoo,</b> building products used by millions. Previously at <a href="https://www.wired.com/">Condé Nast</a>, <a href="https://www.cnet.com/">CNET</a>, and <a href="https://en.wikipedia.org/wiki/Slingbox">Slingbox</a>. On the side, I make things for the internet.
+  </p>
+
+
+  <section class="two-col">
+    <div>
+      <div class="col-label">Currently</div>
+      <p class="col-body">Strategy and product development across Yahoo's media brands, with a focus on AI, tech, media, and user behavior on the web.</p>
+    </div>
+    <div>
+      <div class="col-label">Elsewhere</div>
+      <p class="col-body">Boston ✈ Tampa ✈ San Francisco ✈ Portland, Oregon. Dad to Josie, amateur family historian, builder of internet things.</p>
+    </div>
   </section>
+
+  <section id="work" class="section">
+    <div class="section-head">
+      <h2>Work</h2>
+    </div>
+    <div class="work-list">
+      <div class="work-row">
+        <span class="year">2022—</span>
+        <span class="title">Yahoo</span>
+        <span class="note">Yahoo's media portfolio and Yahoo Search</span>
+      </div>
+      <div class="work-row">
+        <span class="year">2021–2022</span>
+        <span class="title">Condé Nast</span>
+        <span class="note">WIRED</span>
+      </div>
+      <div class="work-row">
+        <span class="year">2015–2021</span>
+        <span class="title">ViacomCBS</span>
+        <span class="note">CNET</span>
+      </div>
+      <div class="work-row">
+        <span class="year">2011–2015</span>
+        <span class="title">Slingbox</span>
+        <span class="note">Hardware to watch your TV anywhere</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section side-projects">
+    <div class="section-head">
+      <h2>Side Projects</h2>
+    </div>
+    <div class="side-projects__grid">
+      <a class="side-projects__item" href="https://seinfeldmemes.com/">
+        <div class="side-projects__title">Seinfeld Memes</div>
+        <div class="side-projects__note">The largest repository of Seinfeld memes.</div>
+      </a>
+      <a class="side-projects__item" href="https://bsky.app/profile/idontrespectwood.bsky.social">
+        <div class="side-projects__title">Current Day Larry David</div>
+        <div class="side-projects__note">It's like Curb Your Enthusiasm never ended.</div>
+      </a>
+      <a class="side-projects__item" href="https://smartphonenation.com/">
+        <div class="side-projects__title">Smartphone Nation</div>
+        <div class="side-projects__note">Smartphone news and reviews of the early smartphone era.</div>
+      </a>
+      <a class="side-projects__item" href="https://cauchon.org/">
+        <div class="side-projects__title">cauchon.org</div>
+        <div class="side-projects__note">The Cauchon family tree.</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="writing" class="section writing">
+    <div class="section-head">
+      <h2>Posts</h2>
+    </div>
+    {% for post in site.posts limit: 10 %}{% unless post.draft %}
+      <a class="post-row" href="{{ post.url }}">
+        <span class="date">{{ post.date | date: "%b %Y" }}</span>
+        <span class="title">{{ post.title }}</span>
+      </a>
+    {% endunless %}{% endfor %}
+  </section>
+
+  <section id="elsewhere" class="elsewhere">
+    <div>
+      <div class="label">Email</div>
+      <a class="link" href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#097;&#117;&#099;&#104;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">cauchon@gmail.com</a>
+    </div>
+    <div>
+      <div class="label">Github</div>
+      <a class="link" href="https://github.com/Cauchon">@Cauchon</a>
+    </div>
+    <div>
+      <div class="label">LinkedIn</div>
+      <a class="link" href="https://www.linkedin.com/in/Cauchon">in/Cauchon</a>
+    </div>
+  </section>
+
+  {% include footer.html %}
+</main>

@@ -1,26 +1,40 @@
 ---
-layout: layout
+layout: home
 title: "Posts"
 ---
-<style>
-.content {margin-top: 0}
-.sidebar {margin-bottom: 0}
-</style>
+<main class="page writing-page">
+  {% include nav.html current="posts" %}
 
-<section class="content">
-  <ul class="listing table">
-    {% for post in site.posts %}
-    {% unless post.draft %}
-      {% capture currentdate %}{{post.date | date: "%Y"}}{% endcapture %}
-      {% if currentdate != thedate %}
-        <h3>{{ currentdate }}</h3>
-        {% capture thedate %}{{currentdate}}{% endcapture %}
-      {% endif %}
-      <li>
-        <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endunless %}
-    {% endfor %}
-  </ul>
-  <br/><br/>
-</section>
+  {% assign published = site.posts | where_exp: "p", "p.draft != true" %}
+  {% assign post_count = published | size %}
+
+  <section class="writing-hero">
+    <div class="eyebrow">/posts · {{ post_count }} post{% if post_count != 1 %}s{% endif %}</div>
+    <h1 class="writing-title">Posts<span class="italic">.</span></h1>
+    <p class="writing-lede">
+      Life updates, career moves, and blabbering about technology. Updated whenever something worth writing about happens.
+    </p>
+  </section>
+
+  <section class="writing-index">
+    <div class="writing-index__head">
+      <h2 class="serif">All posts</h2>
+      <a class="writing-index__rss" href="/atom.xml">rss →</a>
+    </div>
+    <div class="writing-index__rows">
+      {% for post in published %}
+        <a class="writing-row" href="{{ post.url }}">
+          <span class="writing-row__date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <div class="writing-row__body">
+            <div class="writing-row__title serif">{{ post.title }}</div>
+            <div class="writing-row__excerpt">{{ post.excerpt | strip_html | truncate: 220 }}</div>
+          </div>
+          <span class="writing-row__arrow">→</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include footer.html %}
+</main>
+

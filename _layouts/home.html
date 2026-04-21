@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  {% include head.html %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/home.css" type="text/css" media="screen, projection" />
+
+  {% include favicons.html %}
+
+  <meta name="msapplication-TileColor" content="#3b5bdb">
+  <meta name="theme-color" content="#f4f4f2">
+
+  {% include analytics.html %}
+</head>
+<body>
+  <div id="root">
+    {{ content }}
+  </div>
+  <script>
+  (function() {
+    var root = document.documentElement;
+    var btn = document.querySelector('.theme-toggle');
+
+    function label() {
+      if (!btn) return;
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      var icon = btn.querySelector('.theme-toggle__icon');
+      var text = btn.querySelector('.theme-toggle__label');
+      if (icon) icon.textContent = isDark ? '☼' : '☾';
+      if (text) text.textContent = isDark ? 'light' : 'dark';
+    }
+
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') root.setAttribute('data-theme', 'dark');
+      else if (saved === 'light') root.removeAttribute('data-theme');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        root.setAttribute('data-theme', 'dark');
+      }
+    } catch (e) {}
+    label();
+
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var isDark = root.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          root.removeAttribute('data-theme');
+          try { localStorage.setItem('theme', 'light'); } catch (e) {}
+        } else {
+          root.setAttribute('data-theme', 'dark');
+          try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+        }
+        label();
+      });
+    }
+  })();
+  </script>
+</body>
+
+</html>

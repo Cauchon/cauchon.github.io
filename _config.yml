@@ -1,9 +1,37 @@
 permalink: /posts/:title/
 name: Justin Cauchon
-url: https://cauchon.net/
+author: Justin Cauchon
+url: https://cauchon.net
 title: Justin Cauchon's Homepage & Projects
 description: Justin Cauchon's website
 future: true
-twitter: Cauchon
+lang: en
+timezone: America/Los_Angeles
+markdown: kramdown
+highlighter: rouge
+twitter:
+  username: Cauchon
+  card: summary
+logo: /icons/icon-192x192.png
 gravatar_url: https://s.gravatar.com/avatar/8121bf21e10ab27ff5c8334e96097d13?s=80
 google_analytics_tracking_id: UA-121235266-2
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /icons/icon-192x192.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - scripts/

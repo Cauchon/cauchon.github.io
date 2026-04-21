@@ -1,10 +1,139 @@
 ---
-layout: layout
-title: "404 - Not Found"
+layout: home
+title: "404 — Lost in the Stacks"
+permalink: /404.html
 ---
+<main class="page lost-page">
+  {% include nav.html current="" %}
 
-<section class="content">
-  <h1>You hit a 404.</h1>
+  <section class="lost-hero">
+    <div class="eyebrow">error 404 · resource not located</div>
+    <h1 class="lost-title">
+      <span class="lost-title__digits" aria-hidden="true">
+        <span class="lost-title__digit">4</span><span class="lost-title__digit lost-title__digit--mid italic">0</span><span class="lost-title__digit">4</span>
+      </span>
+      <span class="visually-hidden">404.</span>
+    </h1>
+    <p class="lost-lede">
+      This page has <span class="italic">wandered off</span> — mis-linked, renamed,
+      or possibly never written. The good news: you are still on the internet,
+      and the internet is mostly working.
+    </p>
+  </section>
 
-  <p>Looks like you hit a broken page, <a href="/">try to head home</a>.</p>
-</section>
+  <section class="lost-receipt" aria-label="Error receipt">
+    <div class="lost-receipt__row">
+      <span class="lost-receipt__k">requested</span>
+      <span class="lost-receipt__v" id="lost-path">…</span>
+    </div>
+    <div class="lost-receipt__row">
+      <span class="lost-receipt__k">referrer</span>
+      <span class="lost-receipt__v" id="lost-ref">unknown caller</span>
+    </div>
+    <div class="lost-receipt__row">
+      <span class="lost-receipt__k">status</span>
+      <span class="lost-receipt__v">404 · not found · page presumed lost</span>
+    </div>
+    <div class="lost-receipt__row">
+      <span class="lost-receipt__k">last seen</span>
+      <span class="lost-receipt__v" id="lost-seen">a while ago, probably</span>
+    </div>
+  </section>
+
+  <section class="lost-detours">
+    <div class="lost-detours__head">
+      <h2 class="serif">Possible detours<span class="italic">.</span></h2>
+      <span class="lost-detours__hint">pick a door →</span>
+    </div>
+    <div class="lost-detours__grid">
+      <a class="lost-detour" href="/">
+        <span class="lost-detour__label">01 · home</span>
+        <span class="lost-detour__title serif">The front page</span>
+        <span class="lost-detour__note">Everything in one place.</span>
+      </a>
+      <a class="lost-detour" href="/posts/">
+        <span class="lost-detour__label">02 · posts</span>
+        <span class="lost-detour__title serif">Something to read</span>
+        <span class="lost-detour__note">
+          {% assign published = site.posts | where_exp: "p", "p.draft != true" %}
+          A record of things worth writing down.
+        </span>
+      </a>
+      <a class="lost-detour" href="https://web.archive.org/web/2019*/cauchon.net" target="_blank" rel="noopener">
+        <span class="lost-detour__label">03 · archive</span>
+        <span class="lost-detour__title serif">The old site</span>
+        <span class="lost-detour__note">Wayback Machine captures from the WordPress era (2013–2019).</span>
+      </a>
+    </div>
+  </section>
+
+  {% assign recent = site.posts | where_exp: "p", "p.draft != true" | slice: 0, 3 %}
+  {% if recent.size > 0 %}
+  <section class="lost-recent">
+    <div class="lost-recent__head">
+      <h2 class="serif">Or, from the recent pile</h2>
+      <a class="lost-recent__all" href="/posts/">see all posts →</a>
+    </div>
+    <div class="lost-recent__rows">
+      {% for post in recent %}
+        <a class="writing-row" href="{{ post.url }}">
+          <span class="writing-row__date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <div class="writing-row__body">
+            <div class="writing-row__title serif">{{ post.title }}</div>
+            <div class="writing-row__excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</div>
+          </div>
+          <span class="writing-row__arrow">→</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% include footer.html %}
+</main>
+
+
+/* Fill the error receipt with a little real context. */
+(function() {
+  try {
+    var pathEl = document.getElementById('lost-path');
+    if (pathEl) {
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      pathEl.textContent = path && path !== '/' ? path : '/ (but probably somewhere else first)';
+    }
+    var refEl = document.getElementById('lost-ref');
+    if (refEl && document.referrer) {
+      try {
+        var u = new URL(document.referrer);
+        refEl.textContent = u.hostname + u.pathname;
+      } catch (e) {
+        refEl.textContent = document.referrer;
+      }
+    }
+    var seenEl = document.getElementById('lost-seen');
+    if (seenEl) {
+      var phrases = [
+        'approximately never',
+        'in a previous deploy',
+        'on a different branch',
+        'when IE11 was still a concern',
+        'before the great refactor',
+        'in the WordPress era'
+      ];
+      seenEl.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+    }
+  } catch (e) {}
+})();
+
+/* Tiny easter egg: click the 0 to spin it. */
+(function() {
+  var zero = document.querySelector('.lost-title__digit--mid');
+  if (!zero) return;
+  var spins = 0;
+  zero.addEventListener('click', function() {
+    spins += 1;
+    zero.style.transition = 'transform 600ms cubic-bezier(.2,.8,.2,1)';
+    zero.style.transform = 'rotate(' + (spins * 360) + 'deg)';
+  });
+})();
+</script>
