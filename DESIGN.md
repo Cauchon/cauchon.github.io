@@ -77,9 +77,7 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Side projects grid | `.side-projects__grid`, `.side-projects__item` (+ `__title`, `__note`) | 2-col editorial grid. Fraunces title (20px, matches Work rows) + Fraunces italic `--ink-soft` note. No metadata row. Collapses to 1-col ≤700px. |
 | Post row (home) | `.writing a.post-row` | homepage posts preview |
 | Writing hero | `.writing-hero`, `.writing-title`, `.writing-lede` | `/posts` top |
-| Featured card | `.writing-featured__card` | large link card with tile |
 | Post index row | `.writing-row` | `/posts` list |
-| Placeholder tile | `.placeholder-img` | striped diagonal fallback |
 | Eyebrow | `.eyebrow` | monospace label above titles |
 | Post body | `.post`, `.post-body` | individual post content |
 | Receipt | `.lost-receipt`, `.lost-receipt__row` | 404 error readout (reusable for any key/value display) |
