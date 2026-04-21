@@ -4,8 +4,6 @@ layout: home
 <main class="page post-page">
   {% include nav.html current="posts" %}
 
-  {% assign words = content | number_of_words %}
-  {% assign read_time = words | divided_by: 200 | plus: 1 %}
   {% assign kicker = page.kicker | default: "Posts" %}
 
   <article class="post">
@@ -13,7 +11,7 @@ layout: home
 
     <header class="post-head">
       <div class="post-meta">
-        {{ kicker }} · {{ page.date | date: "%B %-d, %Y" }} · {{ read_time }} min read
+        {{ kicker }} · {{ page.date | date: "%B %-d, %Y" }}
       </div>
       <h1 class="post-title serif">{{ page.title }}</h1>
     </header>
@@ -32,4 +30,3 @@ layout: home
 
   {% include footer.html %}
 </main>
-
