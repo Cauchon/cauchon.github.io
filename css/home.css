@@ -277,9 +277,7 @@ a {
 }
 .side-projects__title {
   font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  font-size: 24px;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: 20px;
   color: var(--ink);
   margin-bottom: 4px;
 }
@@ -782,7 +780,6 @@ a {
   .work-row { grid-template-columns: 84px 1fr; gap: 16px; }
   .work-row .note { grid-column: 2; }
   .side-projects__grid { grid-template-columns: 1fr; row-gap: 28px; }
-  .side-projects__title { font-size: 22px; }
   .writing h2 { font-size: 24px; }
   .writing a.post-row { grid-template-columns: 96px 1fr; gap: 14px; }
   .elsewhere { grid-template-columns: 1fr; gap: 20px; }
