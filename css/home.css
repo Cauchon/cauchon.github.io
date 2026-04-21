@@ -253,19 +253,16 @@ a {
   row-gap: 40px;
 }
 .side-projects__item {
-  display: block;
-  color: inherit;
+  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   text-decoration: none;
-  transition: color 120ms ease;
 }
 .side-projects__title {
-  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   font-size: 20px;
   color: var(--ink);
   margin-bottom: 4px;
+  transition: color 160ms ease;
 }
 .side-projects__note {
-  font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   font-style: italic;
   font-size: 17px;
   line-height: 1.4;
