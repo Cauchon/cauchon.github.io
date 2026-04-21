@@ -267,13 +267,7 @@ a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-mute);
-  margin-bottom: 10px;
-}
-.side-projects__meta .arrow {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-  color: var(--ink-mute);
+  margin-top: 10px;
 }
 .side-projects__title {
   font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
@@ -286,7 +280,7 @@ a {
   font-style: italic;
   font-size: 17px;
   line-height: 1.4;
-  color: var(--accent);
+  color: var(--ink-soft);
 }
 .side-projects__item:hover .side-projects__title {
   color: var(--accent);
