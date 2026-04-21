@@ -1,7 +1,5 @@
 ---
-layout: post
 title: "Introducing our new dog, Tito"
-category: posts
 ---
 
 We are happy to introduce a new member of our family, Tito. He's a good boy who joins us from a rescue and is now a permentant member of our household.

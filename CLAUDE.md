@@ -73,13 +73,11 @@ bundle exec jekyll build
 
 ### Posts
 - Add new posts in `_posts/` with date-prefixed filename.
-- Front matter:
+- Front matter (only `title` is required — `layout: post` is applied to all `_posts/` entries via `defaults:` in `_config.yml`):
 
 ```yaml
 ---
-layout: post
 title: "Post title"
-category: posts
 ---
 ```
 

@@ -1,7 +1,5 @@
 ---
-layout: post
 title: "Our daughter is here"
-category: posts
 ---
 
 We are happy to introduce a new member of our family, Josie Anne Cauchon. Josie was born on May 27, 2023, making her debut into the world. Today, we celebrate her one month birthday.

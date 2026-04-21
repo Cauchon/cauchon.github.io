@@ -1,7 +1,5 @@
 ---
-layout: post
 title: "Joining Condé Nast"
-category: posts
 ---
 
 I've accepted a new role as Director of Product at Condé Nast, managing product management for WIRED.

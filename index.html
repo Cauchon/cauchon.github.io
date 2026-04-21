@@ -92,7 +92,7 @@ layout: home
     <div class="section-head">
       <h2>Posts</h2>
     </div>
-    {% for post in site.posts %}{% unless post.draft %}
+    {% for post in site.posts limit: 10 %}{% unless post.draft %}
       <a class="post-row" href="{{ post.url }}">
         <span class="date">{{ post.date | date: "%b %Y" }}</span>
         <span class="title">{{ post.title }}</span>

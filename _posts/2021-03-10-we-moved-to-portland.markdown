@@ -1,7 +1,5 @@
 ---
-layout: post
 title: "We moved to Portland"
-category: posts
 ---
 
 On a personal note, we moved to Portland last month and will be here for at least the next year.

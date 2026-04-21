@@ -1,7 +1,5 @@
 ---
-layout: post
 title: "Joining Yahoo"
-category: posts
 ---
 
 I've accepted a new role as Director of Product at Yahoo, managing product management for Engadget.
