@@ -110,7 +110,9 @@ layout: home
   </section>
 
   <section id="writing" class="section writing">
-    <h2>Posts</h2>
+    <div class="section-head">
+      <h2>Posts</h2>
+    </div>
     {% for post in site.posts %}{% unless post.draft %}
       <a class="post-row" href="{{ post.url }}">
         <span class="date">{{ post.date | date: "%b %Y" }}</span>
