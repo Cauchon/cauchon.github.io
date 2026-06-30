@@ -70,7 +70,6 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Squiggle nav | `.site-nav` + `.squiggle` | via `_includes/nav.html` |
 | Hero | `.hero`, `.hero h1` | homepage only |
 | Tagline | `.tagline` | below hero |
-| Marquee | `.marquee`, `.marquee__track`, `.marquee__item` | homepage status strip |
 | Two-column info | `.two-col`, `.col-label`, `.col-body` | Currently / Elsewhere |
 | Section head | `.section`, `.section-head` | labeled sections with heavy top rule |
 | Work row | `.work-row` (year / title / note) | work history |
