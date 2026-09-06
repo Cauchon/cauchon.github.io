@@ -210,6 +210,9 @@ a {
 }
 
 /* Side projects */
+.side-projects {
+  scroll-margin-top: 48px;
+}
 .side-projects__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -911,4 +914,33 @@ a {
   .portrait, .portrait * { animation: none !important; transition: none !important; }
   .portrait__cutout { transform: rotate(-3deg); }
   .portrait__backing { transform: translate(34px, 22px); }
+}
+
+/* Contact illustration stays alongside the contact links. */
+.elsewhere--avatar {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) 110px;
+  align-items: center;
+}
+.elsewhere__avatar {
+  display: block;
+  width: 110px;
+  height: auto;
+  justify-self: end;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 960px) {
+  .elsewhere--avatar { gap: 20px; }
+  .elsewhere--avatar .link { font-size: 18px; }
+}
+@media (max-width: 700px) {
+  .elsewhere--avatar {
+    grid-template-columns: minmax(0, 1fr) 100px;
+  }
+  .elsewhere--avatar > div { grid-column: 1; }
+  .elsewhere__avatar {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 100px;
+  }
 }

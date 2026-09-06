@@ -75,6 +75,7 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Section head | `.section`, `.section-head` | labeled sections with heavy top rule |
 | Work row | `.work-row` (year / title / note) | work history |
 | Side projects grid | `.side-projects__grid`, `.side-projects__item` (+ `__title`, `__note`) | 2-col editorial grid. Fraunces title (20px, matches Work rows) + Fraunces italic `--ink-soft` note. No metadata row. Collapses to 1-col ≤700px. |
+| Contact illustration | `.elsewhere--avatar`, `.elsewhere__avatar` | Homepage contact row has four items: Email, GitHub, LinkedIn, and a 110px transparent computer avatar. At ≤700px, links stack in the left column and the 100px avatar spans their rows on the right. Footer retains its standard layout. Decorative empty alt, no pointer interaction, same cutout in both themes. |
 | Post row (home) | `.writing a.post-row` | homepage posts preview |
 | Writing hero | `.writing-hero`, `.writing-title`, `.writing-lede` | `/posts` top |
 | Post index row | `.writing-row` | `/posts` list |
