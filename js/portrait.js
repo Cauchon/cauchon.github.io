@@ -3,7 +3,7 @@
   const portrait = document.querySelector('.portrait');
   if (!portrait) return;
   const button = portrait.querySelector('button');
-  const avatar = portrait.querySelector('.portrait__habbo');
+  const avatar = portrait.querySelector('.portrait__pixel');
   const photo = portrait.querySelector('svg');
   const greeting = portrait.querySelector('.portrait__greeting');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -22,7 +22,7 @@
   };
   enable();
   const updateHover = event => {
-    if (button.disabled || motion.matches || portrait.classList.contains('is-habbo') || event.pointerType !== 'mouse') return;
+    if (button.disabled || motion.matches || portrait.classList.contains('is-pixel') || event.pointerType !== 'mouse') return;
     portrait.classList.add('is-hovering');
     const rect = button.getBoundingClientRect();
     const x = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1));
@@ -39,10 +39,16 @@
   button.addEventListener('blur', reset);
   button.addEventListener('click', () => {
     reset();
-    const isHabbo = portrait.classList.toggle('is-habbo');
-    button.setAttribute('aria-pressed', String(isHabbo));
-    photo.setAttribute('aria-hidden', String(isHabbo));
-    greeting.textContent = isHabbo ? 'Justin is now a Habbo character. Press again to return to the photograph.' : 'Justin’s photograph is now showing.';
+    const isPixel = portrait.classList.toggle('is-pixel');
+    button.setAttribute('aria-pressed', String(isPixel));
+    photo.setAttribute('aria-hidden', String(isPixel));
+    greeting.textContent = isPixel ? 'Justin is now a pixel character. Press again to return to the photograph.' : 'Justin’s photograph is now showing.';
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'portrait_toggle', {
+        portrait_state: isPixel ? 'pixel' : 'photo'
+      });
+    }
   });
   motion.addEventListener('change', reset);
 })();

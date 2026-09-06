@@ -69,7 +69,7 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Site header + logo | `.site-header`, `.site-logo` | all pages using `layout: home` |
 | Squiggle nav | `.site-nav` + `.squiggle` | via `_includes/nav.html` |
 | Hero | `.hero`, `.hero h1` | homepage only |
-| Portrait toggle | `.portrait`, `.portrait__button`, `.portrait__habbo` | Homepage photo crossfades to a transparent Habbo-style avatar on click, tap, Enter, or Space. No visible caption or icon; discovery comes from the portrait’s hover and focus cues. The avatar stays in its original resting pose. Press again to restore the photo. Enable only after the avatar decodes; preserve the photo without JS or on image failure. Fixed footprint prevents layout shifts. Reduced motion disables transitions and tilt. |
+| Portrait toggle | `.portrait`, `.portrait__button`, `.portrait__pixel` | Homepage photo crossfades to a transparent pixel-art avatar on click, tap, Enter, or Space. No visible caption or icon; discovery comes from the portrait’s hover and focus cues. The avatar stays in its original resting pose. Press again to restore the photo. Enable only after the avatar decodes; preserve the photo without JS or on image failure. Fixed footprint prevents layout shifts. Reduced motion disables transitions and tilt. |
 | Tagline | `.tagline` | below hero |
 | Two-column info | `.two-col`, `.col-label`, `.col-body` | Currently / Elsewhere |
 | Section head | `.section`, `.section-head` | labeled sections with heavy top rule |
