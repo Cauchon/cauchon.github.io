@@ -3,19 +3,28 @@
   const portrait = document.querySelector('.portrait');
   if (!portrait) return;
   const button = portrait.querySelector('button');
-  const drawing = portrait.querySelector('svg');
+  const avatar = portrait.querySelector('.portrait__habbo');
+  const photo = portrait.querySelector('svg');
+  const hint = portrait.querySelector('.portrait__hint');
   const greeting = portrait.querySelector('.portrait__greeting');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let timer;
-  let wobble;
   const reset = () => {
     portrait.classList.remove('is-hovering');
     ['rx', 'ry', 'x', 'y'].forEach(axis => portrait.style.removeProperty(`--portrait-${axis}`));
   };
-  button.disabled = false;
-  portrait.classList.add('is-ready');
+  // Decode before enabling the toggle so a slow connection never reveals a blank image.
+  const enable = async () => {
+    try {
+      await avatar.decode();
+      button.disabled = false;
+      portrait.classList.add('is-ready');
+    } catch {
+      // Keep the original photograph if the avatar cannot be loaded.
+    }
+  };
+  enable();
   const updateHover = event => {
-    if (motion.matches || event.pointerType !== 'mouse') return;
+    if (button.disabled || motion.matches || portrait.classList.contains('is-habbo') || event.pointerType !== 'mouse') return;
     portrait.classList.add('is-hovering');
     const rect = button.getBoundingClientRect();
     const x = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1));
@@ -31,22 +40,12 @@
   button.addEventListener('pointercancel', reset);
   button.addEventListener('blur', reset);
   button.addEventListener('click', () => {
-    clearTimeout(timer);
-    if (wobble) wobble.cancel();
-    greeting.textContent = 'hey, I’m Justin.';
-    portrait.classList.add('is-greeting');
-    if (!motion.matches) {
-      wobble = drawing.animate([
-        { transform: 'rotate(0deg)' },
-        { transform: 'rotate(3deg)', offset: 0.3 },
-        { transform: 'rotate(-3deg)', offset: 0.65 },
-        { transform: 'rotate(0deg)' }
-      ], { duration: 600, easing: 'ease-in-out' });
-    }
-    timer = setTimeout(() => {
-      portrait.classList.remove('is-greeting');
-      greeting.textContent = '';
-    }, 3000);
+    reset();
+    const isHabbo = portrait.classList.toggle('is-habbo');
+    button.setAttribute('aria-pressed', String(isHabbo));
+    photo.setAttribute('aria-hidden', String(isHabbo));
+    hint.textContent = isHabbo ? 'back to real life ↗' : 'a little pixel magic ↗';
+    greeting.textContent = isHabbo ? 'Justin is now a Habbo character. Press again to return to the photograph.' : 'Justin’s photograph is now showing.';
   });
-  motion.addEventListener('change', () => { reset(); if (wobble) wobble.cancel(); });
+  motion.addEventListener('change', reset);
 })();
