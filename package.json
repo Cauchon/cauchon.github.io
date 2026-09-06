@@ -1,0 +1,14 @@
+{
+  "name": "cauchon-net",
+  "private": true,
+  "scripts": {
+    "build": "bundle exec jekyll build --trace",
+    "check:js": "node --check js/contact.js && node --check js/portrait.js && node --check special-projects/pronouns/app.js && node --check scripts/check-internal-links.mjs && node --check tests/smoke.spec.js && node --check playwright.config.js",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "test:smoke": "playwright test",
+    "test": "npm run build && npm run check:js && npm run check:links && npm run test:smoke"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

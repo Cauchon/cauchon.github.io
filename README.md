@@ -15,14 +15,25 @@ Built with [Jekyll](https://jekyllrb.com/) and deployed via [GitHub Pages](https
 
 ## Local Development
 
-**Prerequisites:** Ruby and Bundler
+**Prerequisites:** Ruby, Bundler, and Node.js
 
 ```bash
 bundle install
-jekyll serve --watch
+npm install
+bundle exec jekyll serve --livereload
 ```
 
 The site will be available at `http://localhost:4000`.
+
+## Tests
+
+The CI suite builds the site, checks JavaScript syntax and generated internal
+links, and runs focused browser smoke tests against Chromium.
+
+```bash
+npx playwright install chromium
+npm test
+```
 
 ## Project Structure
 

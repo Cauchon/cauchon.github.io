@@ -403,7 +403,6 @@ document.addEventListener('touchend', (e) => {
 
 function init() {
     resizeCanvas();
-    initTTS();
 }
 
 if (document.readyState === 'loading') {

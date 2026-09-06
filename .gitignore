@@ -1,9 +1,14 @@
 _site
 .DS_Store
+.env*
+.Codex/worktrees/
 _drafts
 .jekyll-cache
 .jekyll-metadata
 vendor/bundle/
+node_modules/
+playwright-report/
+test-results/
 _internal
 AGENT.md
 TODO.md
