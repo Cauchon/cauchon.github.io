@@ -5,7 +5,6 @@
   const button = portrait.querySelector('button');
   const avatar = portrait.querySelector('.portrait__habbo');
   const photo = portrait.querySelector('svg');
-  const hint = portrait.querySelector('.portrait__hint');
   const greeting = portrait.querySelector('.portrait__greeting');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const reset = () => {
@@ -17,7 +16,6 @@
     try {
       await avatar.decode();
       button.disabled = false;
-      portrait.classList.add('is-ready');
     } catch {
       // Keep the original photograph if the avatar cannot be loaded.
     }
@@ -44,7 +42,6 @@
     const isHabbo = portrait.classList.toggle('is-habbo');
     button.setAttribute('aria-pressed', String(isHabbo));
     photo.setAttribute('aria-hidden', String(isHabbo));
-    hint.textContent = isHabbo ? 'back to real life ↗' : 'a little pixel magic ↗';
     greeting.textContent = isHabbo ? 'Justin is now a Habbo character. Press again to return to the photograph.' : 'Justin’s photograph is now showing.';
   });
   motion.addEventListener('change', reset);

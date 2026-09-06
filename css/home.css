@@ -879,22 +879,19 @@ a {
 /* A photographic paper cutout beside the name. */
 .hero--portrait { display: grid; grid-template-columns: minmax(0, 1fr) 34%; align-items: center; gap: 0; }
 .hero--portrait h1 { position: relative; z-index: 1; font-size: clamp(100px, 13vw, 166px); pointer-events: none; }
-.portrait { width: 100%; min-width: 0; position: relative; padding-bottom: 30px; }
+.portrait { width: 100%; min-width: 0; position: relative; }
 .portrait__button { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; perspective: 900px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .portrait__button:disabled { cursor: default; }
 .portrait__button:focus-visible { outline: 2px solid var(--accent); outline-offset: 10px; border-radius: 45% 45% 20% 20%; }
 .portrait__cutout { display: block; position: relative; pointer-events: none; transform: rotate(-3deg) rotateX(var(--portrait-rx, 0deg)) rotateY(var(--portrait-ry, 0deg)) translateY(var(--portrait-lift, 0px)) scale(var(--portrait-scale, 1)); transition: transform 420ms ease-out; }
 .portrait.is-hovering { --portrait-lift: -3px; --portrait-scale: 1.035; }
-.portrait svg { transform-origin: center; display: block; width: 100%; overflow: visible; opacity: 1; transition: opacity 420ms ease, transform 420ms ease; }
+.portrait__cutout > svg { transform-origin: center; display: block; width: 100%; overflow: visible; opacity: 1; transition: opacity 420ms ease, transform 420ms ease; }
 .portrait__habbo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; opacity: 0; transform: translateY(8px) scale(.94); transition: opacity 420ms ease, transform 420ms ease; }
 .portrait.is-habbo .portrait__cutout { transform: none; }
-.portrait.is-habbo svg { opacity: 0; transform: scale(.94); }
+.portrait.is-habbo .portrait__cutout > svg { opacity: 0; transform: scale(.94); }
 .portrait.is-habbo .portrait__habbo { opacity: 1; transform: none; }
 .portrait__backing { fill: var(--accent); transform: translate(calc(34px + var(--portrait-x, 0px)), calc(22px + var(--portrait-y, 0px))); transition: transform 220ms ease-out; }
 .portrait__paper { fill: #fffdf8; stroke: #fffdf8; stroke-width: 34; stroke-linejoin: round; }
-.portrait__hint { position: absolute; left: 0; right: 0; text-align: center; font: italic 17px/1.3 'Fraunces', Georgia, serif; }
-.portrait__hint { bottom: -3px; color: var(--ink-mute); opacity: 0; transition: opacity 180ms; }
-.portrait.is-ready .portrait__hint { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
   .portrait { animation: portrait-arrive 650ms ease-out both; }
   @keyframes portrait-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -908,8 +905,7 @@ a {
   .hero--portrait { grid-template-columns: minmax(0, 1fr) 30%; gap: 0; align-items: center; }
   .hero--portrait h1 { font-size: clamp(62px, 19.5vw, 130px); letter-spacing: -0.05em; }
   .hero--portrait .cursor { display: none; }
-  .portrait { width: 100%; margin-left: 0; padding-bottom: 24px; top: 18px; }
-  .portrait__hint { font-size: 11px; left: 0; }
+  .portrait { width: 100%; margin-left: 0; top: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .portrait, .portrait * { animation: none !important; transition: none !important; }
