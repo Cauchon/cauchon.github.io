@@ -70,11 +70,11 @@ Every component already lives in `css/home.css` — reuse before inventing.
 | Squiggle nav | `.site-nav` + `.squiggle` | via `_includes/nav.html` |
 | Hero | `.hero`, `.hero h1` | homepage only |
 | Portrait toggle | `.portrait`, `.portrait__button`, `.portrait__pixel` | Homepage photo crossfades to a transparent pixel-art avatar on click, tap, Enter, or Space. No visible caption or icon; discovery comes from the portrait’s hover and focus cues. The avatar stays in its original resting pose. Press again to restore the photo. Enable only after the avatar decodes; preserve the photo without JS or on image failure. Fixed footprint prevents layout shifts. Reduced motion disables transitions and tilt. |
-| Tagline | `.tagline` | below hero |
+| Tagline | `.tagline` | Below hero. Company links stay on one line and inherit text color with a thin irregular pencil underline at 25% opacity. Hover and keyboard focus use cobalt text, a 10% cobalt highlight, and a 75% opacity pencil stroke. Keyboard focus adds a 2px outline. Transitions take 150ms and are disabled for reduced motion. |
 | Two-column info | `.two-col`, `.col-label`, `.col-body` | Currently / Elsewhere |
 | Section head | `.section`, `.section-head` | labeled sections with heavy top rule |
 | Work row | `.work-row` (year / title / note) | work history |
-| Side projects grid | `.side-projects__grid`, `.side-projects__item` (+ `__title`, `__note`) | 2-col editorial grid. Fraunces title (20px, matches Work rows) + Fraunces italic `--ink-soft` note. No metadata row. Collapses to 1-col ≤700px. |
+| Side projects grid | `.side-projects__grid`, `.side-projects__item` (+ `__title`, `__note`, optional `.is-retired` + `__tag`) | 2-col editorial grid. Fraunces title (20px, matches Work rows) + regular Inter description (16px, line-height 1.55) in `--ink-soft`. Retired projects are muted and use a small monospace status tag. Collapses to 1-col ≤700px. |
 | Contact illustration | `.elsewhere--avatar`, `.elsewhere__avatar` | Homepage contact row has four items: Email, GitHub, LinkedIn, and a 110px transparent computer avatar. At ≤700px, links stack in the left column and the 100px avatar spans their rows on the right. Footer retains its standard layout. Decorative empty alt, no pointer interaction, same cutout in both themes. |
 | Post row (home) | `.writing a.post-row` | homepage posts preview |
 | Writing hero | `.writing-hero`, `.writing-title`, `.writing-lede` | `/posts` top |

@@ -143,6 +143,43 @@ a {
   color: var(--ink);
   font-weight: 500;
 }
+.tagline a {
+  position: relative;
+  white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+.tagline a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.04em;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.25;
+  clip-path: polygon(0 55%, 18% 30%, 39% 50%, 62% 10%, 81% 30%, 100% 0, 100% 32%, 81% 65%, 62% 45%, 39% 90%, 18% 65%, 0 85%);
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+.tagline a:hover,
+.tagline a:focus-visible {
+  color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.tagline a:hover::after,
+.tagline a:focus-visible::after {
+  opacity: 0.75;
+}
+.tagline a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tagline a,
+  .tagline a::after { transition: none; }
+}
 
 /* Currently/Elsewhere two-col */
 .two-col {
@@ -230,13 +267,38 @@ a {
   transition: color 160ms ease;
 }
 .side-projects__note {
-  font-style: italic;
-  font-size: 17px;
-  line-height: 1.4;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--ink-soft);
 }
 .side-projects__item:hover .side-projects__title {
   color: var(--accent);
+}
+
+/* Retired projects — kept as a showcase, dialed below active work */
+.side-projects__item.is-retired .side-projects__title {
+  color: var(--ink-soft);
+}
+.side-projects__item.is-retired .side-projects__note {
+  color: var(--ink-mute);
+}
+.side-projects__tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 2px 7px;
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  white-space: nowrap;
 }
 
 /* Writing */
