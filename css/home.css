@@ -274,16 +274,15 @@ a {
   line-height: 1.55;
   color: var(--ink-soft);
 }
-.side-projects__item:hover .side-projects__title {
-  color: var(--accent);
-}
-
 /* Retired projects — kept as a showcase, dialed below active work */
 .side-projects__item.is-retired .side-projects__title {
   color: var(--ink-soft);
 }
 .side-projects__item.is-retired .side-projects__note {
   color: var(--ink-mute);
+}
+.side-projects__item:hover .side-projects__title {
+  color: var(--accent);
 }
 .side-projects__tag {
   font-family: 'JetBrains Mono', monospace;
